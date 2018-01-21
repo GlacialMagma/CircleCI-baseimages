@@ -1,0 +1,18 @@
+FROM djschaper/bats-core:latest as bats-core
+FROM djschaper/shellcheck:alpine-latest as shellcheck
+
+FROM alpine:3.7
+
+COPY --from=shellcheck /bin/shellcheck /bin
+COPY --from=bats-core /usr/local/bin/bats /usr/local/bin/
+COPY --from=bats-core /usr/local/libexec/bats* /usr/local/libexec/
+
+RUN apk --no-cache --virtual .run-depends add \
+      bash \
+      curl \
+      drill \
+      git \
+      openssh \
+      openssl
+
+ENTRYPOINT ["/bin/sh"]
