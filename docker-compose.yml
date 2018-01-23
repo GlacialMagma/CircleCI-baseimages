@@ -5,14 +5,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.alpine-bats
-    image: djschaper/circleci:bats-alpine3.7
+    image: djschaper/circleci-baseimages:bats-alpine3.7
   alpine-shellcheck:
     build:
       context: .
       dockerfile: Dockerfile.alpine-sc
-    image: djschaper/circleci:shellcheck-alpine3.7
+    image: djschaper/circleci-baseimages:shellcheck-alpine3.7
   alpine-combined:
     build:
       context: .
       dockerfile: Dockerfile.alpine-combined
-    image: djschaper/circleci:combined-alpline3.7
+    image: djschaper/circleci-baseimages:combined-alpine3.7
