@@ -13,4 +13,4 @@ RUN apk --no-cache --virtual .run-depends add \
       openssh \
       openssl
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/bash"]
